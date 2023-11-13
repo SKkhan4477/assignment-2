@@ -1,0 +1,20 @@
+	Array-based Queue:
+Enqueue (Insertion): 
+O(1) on average. Adding an element to the back of the array typically takes constant time. However, in scenarios where the array is full, you might need to resize the array, which could take O(n) time (amortized over multiple operations).
+Dequeue (Removal):
+ O(1). Removing an element from the front of the array takes constant time.
+Linked List-based Queue:
+Enqueue (Insertion): 
+O(1). Adding an element to the back of the linked list is a constant-time operation as you only need to update the pointers.
+Dequeue (Removal): 
+O(1). Removing an element from the front of the linked list also takes constant time.
+
+Optimizing Enqueue and Dequeue Operations:
+Array Resizing:
+ If you're using an array-based queue, to optimize the enqueue operation, you can employ an array resizing strategy (e.g., doubling the array size when it's full). This amortizes the cost of resizing and results in an average-case constant time for enqueue.
+
+
+Circular Queue:
+ To further optimize array-based queues, you can use a circular queue approach, where the front and rear pointers wrap around the array when they reach the end. This eliminates the need for resizing, making enqueue and dequeue operations more efficient.
+Double-ended Queue (Deque): 
+If you need both front and rear insertion/removal efficiently, consider using a double-ended queue (deque) instead of a basic queue. Deques provide O(1) time complexity for both enqueue and dequeue operations at both ends.
