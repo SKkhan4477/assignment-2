@@ -1,0 +1,43 @@
+Initialization:
+Create two empty stacks, let's call them stack1 and stack2.
+stack1 will be used for enqueue operations (pushing elements into the queue).
+stack2 will be used for dequeue operations (popping elements from the queue).
+Enqueue Operation:
+To enqueue an element, push it onto stack1.
+The most recently enqueued element will be at the top of stack1.
+Dequeue Operation:
+Before performing a dequeue operation, ensure that stack2 is empty.
+If stack2 is empty, transfer all elements from stack1 to stack2 one by one. This effectively reverses the order of elements, making the oldest element at the top of stack2.
+
+
+
+code example:
+
+
+
+class QueueUsingTwoStacks:
+    def __init__(self):
+        self.stack1 = []  
+        self.stack2 = []  
+
+    def enqueue(self, item):
+        self.stack1.append(item)
+
+    def dequeue(self):
+        if not self.stack2:
+            if not self.stack1:
+                return "Queue is empty"
+            
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        return self.stack2.pop()
+
+
+queue = QueueUsingTwoStacks()
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+
+print(queue.dequeue())  
+print(queue.dequeue())  
+print(queue.dequeue())  
